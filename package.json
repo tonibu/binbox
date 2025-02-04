@@ -1,0 +1,27 @@
+{
+  "name": "binbox",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpx concurrently --names 'SERVER,CLIENT' --prefix-colors 'green,yellow' 'pnpm run dev:server' 'pnpm run dev:vite'",
+    "dev:server": "node --watch --experimental-strip-types --experimental-transform-types --env-file=.env src/server/index.ts",
+    "dev:vite": "vite",
+    "build": "vite build"
+  },
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
+  "dependencies": {
+    "express": "^4.21.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "squirrelly": "^9.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11"
+  }
+}
