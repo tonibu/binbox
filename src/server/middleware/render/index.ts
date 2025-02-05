@@ -9,14 +9,15 @@ const renderMiddleware = async ({
 }: Options): Promise<RequestHandler> => {
   const htmlTemplate = (await fs.promises.readFile(htmlPath)).toString();
 
-  const templateOptions = {
-    env: process.env.NODE_ENV,
-    vite: {
-      port: process.env.VITE_DEV_PORT,
-    },
-  };
-
   return (_, res) => {
+    const templateOptions = {
+      env: process.env.NODE_ENV,
+      accessToken: res.locals.accessToken,
+      vite: {
+        port: process.env.VITE_DEV_PORT,
+      },
+    };
+
     const html = sqrl.render(htmlTemplate, templateOptions);
 
     res.setHeader("content-type", "text/html");
